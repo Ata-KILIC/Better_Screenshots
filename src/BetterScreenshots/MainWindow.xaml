@@ -1,0 +1,19 @@
+<Window x:Class="BetterScreenshots.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Better Screenshots" Width="575" Height="610" MinWidth="510" MinHeight="550" WindowStartupLocation="CenterScreen" Background="{StaticResource PageBrush}">
+  <ScrollViewer VerticalScrollBarVisibility="Auto"><Grid Margin="26"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+    <DockPanel Grid.Row="0" Margin="0,0,0,23"><StackPanel><TextBlock Text="Better Screenshots" FontSize="25" FontWeight="SemiBold" Foreground="{StaticResource InkBrush}"/><TextBlock Text="A lightweight companion to Windows Snipping Tool" Foreground="{StaticResource MutedBrush}" Margin="0,4,0,0"/></StackPanel><Button DockPanel.Dock="Right" Content="Open Folder" Click="OpenFolderClick" VerticalAlignment="Center"/></DockPanel>
+    <Border Grid.Row="1" Background="{StaticResource CardBrush}" CornerRadius="9" BorderBrush="#E5E7EB" BorderThickness="1" Padding="18" Margin="0,0,0,15"><StackPanel>
+      <TextBlock Text="CAPTURE" FontSize="11" FontWeight="Bold" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,12"/>
+      <Grid Margin="0,0,0,11"><Grid.ColumnDefinitions><ColumnDefinition Width="170"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions><TextBlock Text="Screenshot shortcut" VerticalAlignment="Center"/><TextBox Grid.Column="1" x:Name="ScreenshotShortcut"/></Grid>
+      <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="170"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions><TextBlock Text="Copy Text shortcut" VerticalAlignment="Center"/><TextBox Grid.Column="1" x:Name="OcrShortcut"/></Grid>
+    </StackPanel></Border>
+    <Border Grid.Row="2" Background="{StaticResource CardBrush}" CornerRadius="9" BorderBrush="#E5E7EB" BorderThickness="1" Padding="18" Margin="0,0,0,15"><StackPanel>
+      <TextBlock Text="AFTER CAPTURE" FontSize="11" FontWeight="Bold" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,10"/>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,13"><RadioButton x:Name="SaveAndClipboard" Content="Save + Clipboard" Margin="0,0,20,0"/><RadioButton x:Name="ClipboardOnly" Content="Clipboard Only"/></StackPanel>
+      <TextBlock Text="Save screenshots to" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,5"/><DockPanel><Button DockPanel.Dock="Right" Content="Browse…" Click="BrowseClick" Margin="8,0,0,0"/><TextBox x:Name="ScreenshotDirectory"/></DockPanel>
+      <CheckBox x:Name="SmartNames" Content="Smart screenshot names" Margin="0,14,0,5"/><CheckBox x:Name="ShowPreview" Content="Show capture preview"/>
+      <Button Content="Save settings" HorizontalAlignment="Left" Background="#2563EB" Foreground="White" BorderBrush="#2563EB" Click="SaveClick" Margin="0,16,0,0"/>
+    </StackPanel></Border>
+    <Border Grid.Row="3" Background="Transparent" Padding="4,5"><StackPanel><TextBlock Text="SMART NAMING" FontSize="11" FontWeight="Bold" Foreground="{StaticResource MutedBrush}" Margin="0,0,0,7"/><TextBlock Text="Uses the active application, window title, and on-demand local Windows OCR. Nothing is uploaded or tracked." Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap"/><TextBlock Text="Better Screenshots  •  Version 1.0" Foreground="{StaticResource MutedBrush}" Margin="0,18,0,0"/></StackPanel></Border>
+  </Grid></ScrollViewer>
+</Window>

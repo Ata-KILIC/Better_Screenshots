@@ -1,0 +1,11 @@
+<Window x:Class="BetterScreenshots.Notifications.QuickPreviewWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" ShowInTaskbar="False" Topmost="True" Width="276" SizeToContent="Height">
+  <Border Background="#FDFDFD" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="10" Padding="8">
+    <StackPanel>
+      <Image x:Name="Thumbnail" Height="126" Stretch="Uniform" />
+      <DockPanel Margin="0,8,0,0"><TextBlock x:Name="FileName" Foreground="#374151" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" /><Button DockPanel.Dock="Right" x:Name="CloseButton" Content="×" Padding="7,0" BorderThickness="0" Background="Transparent" FontSize="18" /></DockPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,8,0,0"><Button x:Name="EditButton" Content="Edit" Margin="0,0,5,0"/><Button x:Name="OcrButton" Content="Copy Text" Margin="0,0,5,0"/><Button x:Name="FolderButton" Content="Open Folder" /></StackPanel>
+      <StackPanel x:Name="SavedActions" Orientation="Horizontal" Margin="0,5,0,0"><Button x:Name="PathButton" Content="Copy Path" Margin="0,0,5,0"/><Button x:Name="OpenWithButton" Content="Open With…" /></StackPanel>
+    </StackPanel>
+  </Border>
+</Window>
