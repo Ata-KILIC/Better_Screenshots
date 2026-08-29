@@ -45,13 +45,16 @@ public partial class RegionCaptureOverlay : Window
     {
         _start = _current = e.GetPosition(OverlayCanvas);
         _selecting = true;
-        CaptureMouse();
+        // Capture the actual input element rather than the transparent window. This
+        // keeps drag events arriving even after the pointer passes over another UI element.
+        Mouse.Capture(Root, CaptureMode.Element);
         UpdateSelection();
+        e.Handled = true;
     }
 
     private void OnMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
     {
-        _current = e.GetPosition(OverlayCanvas);
+        _current = Mouse.GetPosition(OverlayCanvas);
         if (_selecting) UpdateSelection();
         UpdateMagnifier(_current);
     }
@@ -60,11 +63,12 @@ public partial class RegionCaptureOverlay : Window
     {
         if (!_selecting) return;
         _selecting = false;
-        ReleaseMouseCapture();
+        Mouse.Capture(null);
         var rect = Selection;
         if (rect.Width < 2 || rect.Height < 2) { ResetSelection(); return; }
         _completion.TrySetResult(ToScreenRect(rect));
         Close();
+        e.Handled = true;
     }
 
     private void OnKeyDown(object sender, System.Windows.Input.KeyEventArgs e)

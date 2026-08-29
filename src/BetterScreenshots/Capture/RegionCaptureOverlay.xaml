@@ -5,7 +5,7 @@
         AllowsTransparency="True" Background="Transparent" Focusable="True">
   <Grid x:Name="Root" Cursor="Cross" PreviewMouseLeftButtonDown="OnMouseDown" PreviewMouseMove="OnMouseMove" PreviewMouseLeftButtonUp="OnMouseUp" PreviewKeyDown="OnKeyDown">
     <Image x:Name="SnapshotImage" Stretch="Fill" SnapsToDevicePixels="True" />
-    <Canvas x:Name="OverlayCanvas">
+    <Canvas x:Name="OverlayCanvas" Background="Transparent">
       <Rectangle x:Name="ShadeTop" Fill="#99000000" />
       <Rectangle x:Name="ShadeLeft" Fill="#99000000" />
       <Rectangle x:Name="ShadeRight" Fill="#99000000" />
